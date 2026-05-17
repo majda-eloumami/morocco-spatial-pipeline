@@ -57,9 +57,7 @@ import numpy as np
 import re
 import zipfile
 import requests
-import pickle
 import matplotlib.pyplot as plt
-from libpysal.weights import Queen
 
 print("\n✓ Packages loaded")
 
@@ -369,19 +367,12 @@ final_complete['log_pop'] = np.log(final_complete['pop_total'].replace(0, np.nan
 
 print(f"✓ Renamed {len(existing_renames)} variables")
 
-# ===== 12. FIX GEOMETRIES & BUILD SPATIAL WEIGHTS ============================
+# ===== 12. FIX GEOMETRIES ====================================================
 
-print("\n=== Step 8: Building Spatial Weights Matrix ===")
+print("\n=== Step 8: Fixing Geometries ===")
 
 final_complete['geometry'] = final_complete.geometry.buffer(0)
 print(f"  Valid geometries: {final_complete.geometry.is_valid.sum()}/{len(final_complete)}")
-
-w = Queen.from_dataframe(final_complete, use_index=False)
-w.transform = 'r'
-
-print(f"✓ Queen contiguity weights built")
-print(f"  Average neighbours : {w.mean_neighbors:.2f}")
-print(f"  Islands            : {len(w.islands)}")
 
 # ===== 13. SAVE OUTPUTS ======================================================
 
@@ -396,12 +387,6 @@ print(f"✓ {geojson_path}")
 csv_path = os.path.join(PROCESSED_DIR, "FINAL_MOROCCO_2024.csv")
 final_complete.drop(columns='geometry').to_csv(csv_path, index=False)
 print(f"✓ {csv_path}")
-
-# Spatial weights
-weights_path = os.path.join(PROCESSED_DIR, "spatial_weights_queen.pkl")
-with open(weights_path, 'wb') as f:
-    pickle.dump(w, f)
-print(f"✓ {weights_path}")
 
 # Codebook
 codebook = pd.DataFrame([

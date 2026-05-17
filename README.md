@@ -1,4 +1,4 @@
-# Morocco Spatial Data Pipeline — HCP 2024 Census
+# Morocco Spatial Data Pipeline: HCP 2024 Census
 
 > **A reusable spatial data pipeline that merges Morocco's 2024 Census with commune-level boundaries into a single, analysis-ready GeoJSON.**
 

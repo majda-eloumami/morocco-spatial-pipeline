@@ -1,12 +1,12 @@
-# 🗺️ Morocco Spatial Data Pipeline — HCP 2024 Census
+# Morocco Spatial Data Pipeline — HCP 2024 Census
 
 > **A reusable spatial data pipeline that merges Morocco's 2024 Census with commune-level boundaries into a single, analysis-ready GeoJSON.**
 
-This repository builds a clean, fully documented commune-level spatial dataset for Morocco using the 2024 HCP Census. The output GeoJSON can be plugged directly into any spatial econometrics, data science, or mapping project — no preprocessing needed.
+This repository builds a clean, fully documented commune-level spatial dataset for Morocco using the 2024 HCP Census. The output GeoJSON can be plugged directly into any spatial econometrics, data science, or mapping project no preprocessing needed.
 
 ---
 
-## 🎯 Objective
+## Objective
 
 The 2024 HCP Census provides rich socioeconomic indicators at the commune level (~1,500 units) but ships as two separate files: a shapefile of commune boundaries and a tabular Excel extract. They share no clean common identifier. This pipeline solves that matching problem using a three-stage strategy and delivers a single spatial file ready for research.
 
@@ -14,7 +14,7 @@ The 2024 HCP Census provides rich socioeconomic indicators at the commune level 
 
 ---
 
-## 📦 Input Data
+## Input Data
 
 | File | Source | Format | Description |
 |---|---|---|---|
@@ -26,17 +26,17 @@ The 2024 HCP Census provides rich socioeconomic indicators at the commune level 
 
 ---
 
-## 📤 Output Files
+## Output Files
 
 | File | Location | Description |
 |---|---|---|
-| `FINAL_MOROCCO_2024.geojson` | `data/processed/` | Full spatial dataset — geometry + all variables |
+| `FINAL_MOROCCO_2024.geojson` | `data/processed/` | Full spatial dataset and geometry + all variables |
 | `FINAL_MOROCCO_2024.csv` | `data/processed/` | Same dataset without geometry (for tabular analysis) |
 | `CODEBOOK.csv` | `outputs/` | Variable dictionary: short name ↔ original French name |
 
 ---
 
-## 🔬 Pipeline Steps
+## Pipeline Steps
 
 | Step | Script Section | Description |
 |---|---|---|
@@ -54,7 +54,7 @@ The 2024 HCP Census provides rich socioeconomic indicators at the commune level 
 
 ---
 
-## 📊 Variables in the Final Dataset
+## Variables in the Final Dataset
 
 | Category | Variables |
 |---|---|
@@ -72,7 +72,7 @@ Full definitions in `outputs/CODEBOOK.csv`.
 
 ---
 
-## 📁 Folder Structure
+## Folder Structure
 
 ```
 morocco-spatial-pipeline/
@@ -94,7 +94,7 @@ morocco-spatial-pipeline/
 
 ---
 
-## ▶️ How to Reproduce
+## How to Reproduce
 
 ### Requirements
 
@@ -116,7 +116,7 @@ Works locally and in Google Colab — environment is detected automatically. GAD
 
 ---
 
-## 🛠️ Tools & Packages
+## Tools & Packages
 
 | Tool | Purpose |
 |---|---|
@@ -127,9 +127,9 @@ Works locally and in Google Colab — environment is detected automatically. GAD
 
 ---
 
-## 🔮 Possible Research Uses
+## Possible Research Uses
 
-This dataset is ready to use as-is for any commune-level study in Morocco:
+This dataset is ready to use as is for any commune-level study in Morocco:
 
 - Spatial econometrics (SAR, SEM, SDM models)
 - Gender inequality mapping
